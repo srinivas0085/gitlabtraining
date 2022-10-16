@@ -1,8 +1,8 @@
 - name: Checking if halon-musi, nginx and mysql is running
   systemd:
-    name: "{{ item }}"
-    state: started1234
-    enabled: no123
+    name: "{{ item }}"   
+    state: stopped
+    enabled: no
   with_items:
     - nginx
     - mysql
