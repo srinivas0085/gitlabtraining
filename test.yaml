@@ -1,0 +1,14 @@
+- name: Checking if halon-musi, nginx and mysql is running
+  systemd:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  with_items:
+    - nginx
+    - mysql
+    - php7.4-fpm
+    - zabbix-agent2
+    - halon-msui
+  tags:
+    service_status
+  when: ansible_hostname == "cy.io"
